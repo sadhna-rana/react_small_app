@@ -1,4 +1,4 @@
-git remote add heroku https://git.heroku.com/online-exam-stagging.git
+git remote add heroku https://git.heroku.com/react-small-app.git
 
 wget https://cli-assets.heroku.com/branches/stable/heroku-linux-amd64.tar.gz
 sudo mkdir -p /usr/local/lib /usr/local/bin
