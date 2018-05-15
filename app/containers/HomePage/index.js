@@ -50,8 +50,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     return (
       <article>
         <Helmet>
-          <title>This is the test page</title>
-          <meta name="description" content="This is for testing" />
+          <title>First Page</title>
+          <meta name="description" content="Online exam website for competative exams" />
         </Helmet>
         <div>
           <CenteredSection>
