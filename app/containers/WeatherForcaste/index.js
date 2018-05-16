@@ -23,7 +23,6 @@ import messages from './messages';
 
 export class WeatherForcaste extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
-    console.log(this.props.weatherDetails);
     return (
       <div>
         <Helmet>
@@ -43,7 +42,6 @@ export class WeatherForcaste extends React.PureComponent { // eslint-disable-lin
 }
 
 WeatherForcaste.propTypes = {
-  city: PropTypes.string,
   submitForm: PropTypes.func.isRequired,
 };
 
