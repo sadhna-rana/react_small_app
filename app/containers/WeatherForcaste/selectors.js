@@ -21,11 +21,23 @@ const makeSelectWeatherForcaste = () => createSelector(
 
 const makeSelectWeatherLocation = () => createSelector(
   selectWeatherForcasteDomain,
-  (substate) => substate.get('location')
+  (substate) => substate.get('city')
+);
+
+const makeSelectWeatherDetails = () => createSelector(
+  selectWeatherForcasteDomain,
+  (substate) => substate.get('weather_details')
+);
+
+const makeSelectWeatherApiError = () => createSelector(
+  selectWeatherForcasteDomain,
+  (substate) => substate.get('weather_api_error')
 );
 
 export default makeSelectWeatherForcaste;
 export {
   selectWeatherForcasteDomain,
   makeSelectWeatherLocation,
+  makeSelectWeatherDetails,
+  makeSelectWeatherApiError,
 };

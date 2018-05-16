@@ -15,14 +15,15 @@ import Submit from 'components/Submit';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectWeatherForcaste from './selectors';
-
+import { makeSelectWeatherLocation, makeSelectWeatherDetails, makeSelectWeatherApiError } from './selectors';
+import { requestWeatherDetails } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 
 export class WeatherForcaste extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
+    console.log(this.props.weatherDetails);
     return (
       <div>
         <Helmet>
@@ -31,8 +32,8 @@ export class WeatherForcaste extends React.PureComponent { // eslint-disable-lin
         </Helmet>
         <FormattedMessage {...messages.header} />
         <div>
-          <form name="weather" method="post" action="/" >
-            <input type="text" name="location" ref={(input) => { this.myField = input; }} onChange={this.props.submitForm} />
+          <form name="weather" method="post" action="/" onSubmit={this.props.submitForm} >
+            <input type="text" name="city" />
             <Submit type="submit" value="Get Weather Details" />
           </form>
         </div>
@@ -42,16 +43,22 @@ export class WeatherForcaste extends React.PureComponent { // eslint-disable-lin
 }
 
 WeatherForcaste.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  city: PropTypes.string,
+  submitForm: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  weatherforcaste: makeSelectWeatherForcaste(),
+  placename: makeSelectWeatherLocation(),
+  weatherDetails: makeSelectWeatherDetails(),
+  weatherApiError: makeSelectWeatherApiError(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    submitForm: (evt) => {
+      evt.preventDefault();
+      dispatch(requestWeatherDetails(evt.target.city.value));
+    },
   };
 }
 
