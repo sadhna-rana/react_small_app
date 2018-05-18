@@ -36,6 +36,14 @@ export class WeatherForcaste extends React.PureComponent { // eslint-disable-lin
             <Submit type="submit" value="Get Weather Details" />
           </form>
         </div>
+        {(this.props.placename) &&
+          <div>
+            <h3>Place: {this.props.placename}</h3>
+            <p>Chill: {this.props.weatherDetails.chill}</p>
+            <p>Direction: {this.props.weatherDetails.direction}</p>
+            <p>Speed: {this.props.weatherDetails.speed}</p>
+          </div>
+          }
       </div>
     );
   }
@@ -43,6 +51,8 @@ export class WeatherForcaste extends React.PureComponent { // eslint-disable-lin
 
 WeatherForcaste.propTypes = {
   submitForm: PropTypes.func.isRequired,
+  placename: PropTypes.string,
+  weatherDetails: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({
