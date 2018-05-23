@@ -119,7 +119,6 @@ function dependencyHandlers() {
         logger.error(`The following Webpack DLL manifest is missing: ${path.basename(manifestPath)}`);
         logger.error(`Expected to find it in ${dllPath}`);
         logger.error('Please run: npm run build:dll');
-
         process.exit(0);
       }
     }

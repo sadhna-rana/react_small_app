@@ -43,7 +43,7 @@ export class WeatherForcaste extends React.PureComponent { // eslint-disable-lin
             <p>Direction: {this.props.weatherDetails.direction}</p>
             <p>Speed: {this.props.weatherDetails.speed}</p>
           </div>
-          }
+        }
       </div>
     );
   }

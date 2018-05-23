@@ -18,4 +18,8 @@ export default defineMessages({
     id: 'boilerplate.components.Header.weather',
     defaultMessage: 'Weather',
   },
+  message: {
+    id: 'boilerplate.components.Header.message',
+    defaultMessage: 'Message',
+  },
 });
